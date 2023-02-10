@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  perspective: 20em;
+}
+
+.option {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  margin: 1em;
+  border-radius: 1em;
+  background-color: red;
+}
+
+.option .content-vote {
+  background-color: green;
+}
+
+.option .vote {
+  position: absolute;
+  bottom: 1em;
+}
+
+.option:hover {
+  animation: option-animation 1.5s infinite alternate-reverse;
+}
+
+.option--voted {
+  animation: vote-animation 1.5s infinite alternate-reverse !important;
+}
+
+@keyframes option-animation {
+  from {
+    transform: rotateY(-25deg);
+  }
+  
+  to {
+    transform: rotateY(25deg);
+  }
+}
+
+@keyframes vote-animation {
+  from {
+    transform: rotateY(-180deg);
+  }
+  
+  to {
+    transform: rotateY(180deg);
+  }
+}
