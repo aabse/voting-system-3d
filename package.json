@@ -1,0 +1,22 @@
+{
+  "name": "voting-system-3d",
+  "version": "1.0.0",
+  "description": "Voting System 3D",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aabse/voting-system-3d.git"
+  },
+  "author": "Angel Absé",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aabse/voting-system-3d/issues"
+  },
+  "homepage": "https://github.com/aabse/voting-system-3d#readme",
+  "dependencies": {
+    "disintegrate": "^1.0.1"
+  }
+}
