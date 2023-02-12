@@ -5,6 +5,7 @@ function vote(event) {
   const parent = event.target.parentElement;
   parent.classList.add('option--voted');
   removeDiscardVote(parent.getAttribute("data-option-discard"));
+  addButtonNewVote();
 }
 
 // Remove option discarded
@@ -26,4 +27,19 @@ function removeDiscardVote(optionNumber) {
   // remove elements
   elem.remove();
   elemVs.remove();
+}
+
+function addButtonNewVote() {
+  const button = document.createElement("button");
+  button.classList.add("button-new-vote");
+  button.innerHTML = 'Nueva Votación';
+  button.onclick = newVote;
+
+  const container = document.querySelector(".container");
+  container.appendChild(button);
+}
+
+function newVote() {
+  const option = document.querySelector(".option--voted");
+  option.classList.add("option--return");
 }

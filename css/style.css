@@ -70,3 +70,30 @@
   }
 }
 
+.button-new-vote {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 2em;
+  width: 100px;
+  height: 400px;
+  background-color: yellow;
+}
+
+.option--return {
+  animation: return-animation 3.5s forwards !important; 
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes return-animation {
+  from {
+    width: 500px;
+    height: 500px;
+  }
+  to {
+    width: 200px;
+    height: 200px;
+  }
+}
