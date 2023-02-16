@@ -19,6 +19,7 @@
   padding: 1em;
   border-radius: 1em;
   background-color: red;
+  left: 0;
 }
 
 .option .content-vote {
@@ -83,7 +84,7 @@
 }
 
 .option--return {
-  animation: return-animation 3.5s forwards !important; 
+  animation: return-animation 2s forwards !important; 
   animation-timing-function: ease-in-out;
 }
 
@@ -91,9 +92,21 @@
   from {
     width: 500px;
     height: 500px;
+    left: 0;
   }
-  to {
+  60% {
     width: 200px;
     height: 200px;
+    left: 0;
+  }
+  85% {
+    left: 0;
+  }
+  90% {
+    left: 400px;
+  }
+  to {
+    left: 0;
   }
 }
+
