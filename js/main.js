@@ -1,5 +1,8 @@
 disintegrate.init();
 
+let optionRemoved;
+const elemVs = document.querySelector(".vs");
+
 // Made a vote
 function vote(event) {
   const parent = event.target.parentElement;
@@ -11,24 +14,26 @@ function vote(event) {
 // Remove option discarded
 function removeDiscardVote(optionNumber) {
   let classElem = `.option-${optionNumber}`;
+  console.log(classElem);
 
   // get elements to remove
-  const elem = document.querySelector(classElem);
-  //const elemVs = document.querySelector('.vs');
+  optionRemoved = document.querySelector(classElem);
 
-  //console.log(elemVs);
+  console.log(optionRemoved);
 
   // create disintegrate elements
-  const disObj = disintegrate.getDisObj(elem);
-  //const disObjVs = disintegrate.getDisObj(elemVs);
+  const disObj = disintegrate.getDisObj(optionRemoved);
+  const disObjVs = disintegrate.getDisObj(elemVs);
 
   // create disintegrate animation
   disintegrate.createSimultaneousParticles(disObj);
-  //disintegrate.createSimultaneousParticles(disObjVs);
+  disintegrate.createSimultaneousParticles(disObjVs);
 
   // remove elements
-  elem.remove();
+  //elem.remove();
   //elemVs.remove();
+  optionRemoved.style.display = "none";
+  elemVs.style.display = "none";
 }
 
 function addButtonNewVote() {
@@ -46,13 +51,18 @@ function newVote() {
   option.classList.add("option--return");
 
   setTimeout(() => {
-    option.className = "option option-1";
-    option.setAttribute("data-option-discard", "2");
+    option.classList.remove("option--voted");
+    option.classList.remove("option--return");
 
     const disObj = disintegrate.getDisObj(option);
     disintegrate.createSimultaneousParticles(disObj);
-    createVote();
+    createVote2();
   }, 1700);
+}
+
+function createVote2() {
+  optionRemoved.style.display = "flex";
+  elemVs.style.display = "block";
 }
 
 function createVote() {
@@ -72,7 +82,7 @@ function createVote() {
   voteElement.appendChild(voteContent);
   voteElement.appendChild(voteButton);
 
-  //createVs();
+  createVs();
 
   const container = document.querySelector(".container");
   container.appendChild(voteElement);
